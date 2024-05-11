@@ -20,13 +20,6 @@
         />
 
     <!-- Jogo carro -->
-
-    <!-- Jogo matemática -->
-
-    <!-- Jogo galo -->
-
-    <!-- Jogo memória -->
-
     <ImageButton
         android:id="@+id/CarRaceBtn"
         android:layout_width="369dp"
@@ -43,6 +36,7 @@
         app:layout_constraintVertical_chainStyle="packed"
         app:srcCompat="@drawable/car_btn" />
 
+    <!-- Jogo matemática -->
     <ImageButton
         android:id="@+id/MathQuizBtn"
         android:layout_width="369dp"
@@ -59,6 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/CarRaceBtn"
         app:srcCompat="@drawable/math_btn" />
 
+    <!-- Jogo galo -->
     <ImageButton
         android:id="@+id/TicTacToeBtn"
         android:layout_width="369dp"
@@ -75,6 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/MathQuizBtn"
         app:srcCompat="@drawable/tictactoe_btn" />
 
+    <!-- Jogo memória -->
     <ImageButton
         android:id="@+id/MemoryGameBtn"
         android:layout_width="369dp"
