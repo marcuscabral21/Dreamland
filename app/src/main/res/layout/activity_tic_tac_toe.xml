@@ -397,4 +397,18 @@
 
         android:backgroundTint="#cc1234"/>
 
+    <!-- Parte do xml para o tempo de sessão -->
+
+    <Chronometer
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btn_reset"/>
+
 </RelativeLayout>
