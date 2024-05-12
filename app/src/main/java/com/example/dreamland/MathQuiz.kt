@@ -165,10 +165,10 @@ class MathQuiz : AppCompatActivity() {
         timer?.cancel()
         sessionTimer?.cancel()
 
-        // Save the session time to shared preferences
+        // Salva o tempo da sessão em SharedPreferences
         val sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        editor.putLong("sessionTime", elapsedTime)
+        editor.putLong("sessionTimeMathQuiz", elapsedTime) // Use "sessionTimeMathQuiz" como a chave
         editor.apply()
     }
 

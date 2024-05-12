@@ -101,7 +101,7 @@ class MemoryGame : AppCompatActivity() {
                 val elapsedTimeInSeconds = (Long.MAX_VALUE - millisUntilFinished) / 1000
                 val sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
-                editor.putInt("sessionTime", elapsedTimeInSeconds.toInt())
+                editor.putLong("sessionTimeMemoryGame", elapsedTimeInSeconds) // Use "sessionTimeMemoryGame" como a chave
                 editor.apply()
             }
         }

@@ -19,6 +19,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
+    <TextView
+        android:id="@+id/nicknameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="@+id/GoUserBtn"
+        app:layout_constraintEnd_toEndOf="@+id/GoUserBtn"
+        app:layout_constraintTop_toBottomOf="@+id/GoUserBtn" />
+
     <!-- User -->
 
     <!-- Jogo carro -->
@@ -27,7 +37,7 @@
         android:id="@+id/GoUserBtn"
         android:layout_width="100dp"
         android:layout_height="82dp"
-        android:layout_marginBottom="300dp"
+        android:layout_marginBottom="276dp"
         android:background="#00FFFFFF"
         android:onClick="onGoUserBtnClick"
         android:scaleType="centerInside"
