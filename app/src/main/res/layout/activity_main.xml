@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A6A6A6"
+    android:background="#D0E6A5"
     tools:context=".MainActivity">
 
     <!-- Logo -->
@@ -13,18 +13,37 @@
         android:id="@+id/logo"
         android:layout_width="143dp"
         android:layout_height="120dp"
-        android:layout_marginStart="132dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="88dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_dreamland"
-        />
+        app:srcCompat="@drawable/logo" />
+
+    <!-- User -->
 
     <!-- Jogo carro -->
+
+    <ImageButton
+        android:id="@+id/GoUserBtn"
+        android:layout_width="100dp"
+        android:layout_height="82dp"
+        android:layout_marginBottom="300dp"
+        android:background="#00FFFFFF"
+        android:onClick="onGoUserBtnClick"
+        android:scaleType="centerInside"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/MathQuizBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/userphoto" />
+
     <ImageButton
         android:id="@+id/CarRaceBtn"
         android:layout_width="369dp"
         android:layout_height="116dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:background="#00FFFFFF"
         android:onClick="onCarRaceBtnClick"
         android:scaleType="centerInside"

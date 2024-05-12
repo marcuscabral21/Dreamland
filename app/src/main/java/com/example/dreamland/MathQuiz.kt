@@ -1,4 +1,3 @@
-//Código com o tempo de sessão implementado
 package com.example.dreamland;
 
 import android.os.Bundle
@@ -34,6 +33,8 @@ class MathQuiz : AppCompatActivity() {
     private var currentQuestionIndex = 0
     private lateinit var currentQuestion: Question
     private var timer: CountDownTimer? = null
+    private var sessionTimer: CountDownTimer? = null
+    private var elapsedTime = 0L
 
     private val random = Random()
 
@@ -48,7 +49,7 @@ class MathQuiz : AppCompatActivity() {
         timerTextView = findViewById(R.id.timerTextView)
         questionNumberTextView = findViewById(R.id.questionNumberTextView)
         sessionTimeTextView = findViewById(R.id.sessionTimeTextView)
-        questionTextView = findViewById(R.id.questionTextView) // Inicialização adicionada
+        questionTextView = findViewById(R.id.questionTextView)
 
         dashbord.visibility = View.VISIBLE
         gamelayout.visibility = View.GONE
@@ -115,12 +116,9 @@ class MathQuiz : AppCompatActivity() {
         }.start()
     }
 
-    private var sessionTimer: CountDownTimer? = null
-
     private fun startSessionTimer(sessionDurationInMillis: Long) {
         sessionTimer?.cancel() // Cancela o timer da sessão anterior
 
-        var elapsedTime = 0L
         sessionTimer = object : CountDownTimer(sessionDurationInMillis, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 elapsedTime += 1000
@@ -134,7 +132,6 @@ class MathQuiz : AppCompatActivity() {
             }
         }.start()
     }
-
 
     private fun generateRandomQuestion(): Question {
         val num1 = random.nextInt(100)
@@ -166,6 +163,13 @@ class MathQuiz : AppCompatActivity() {
             gamelayout.visibility = View.GONE
         }, 1000)
         timer?.cancel()
+        sessionTimer?.cancel()
+
+        // Save the session time to shared preferences
+        val sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putLong("sessionTime", elapsedTime)
+        editor.apply()
     }
 
     private fun onOptionSelected(view: View) {
@@ -198,7 +202,6 @@ class MathQuiz : AppCompatActivity() {
             }
         }, 1000)
     }
-
 
     private fun updateScoreDisplay() {
         findViewById<TextView>(R.id.scoreTextView)?.text = "Score: $score"

@@ -38,6 +38,11 @@ class MainActivity : AppCompatActivity() {
         MemoryGameBtn.setOnClickListener {
             JogoMemoria()
         }
+
+        val GoUserBtn = findViewById<ImageButton>(R.id.GoUserBtn)
+        GoUserBtn.setOnClickListener {
+            GoUser()
+        }
     }
 
     private fun JogoCarro(){
@@ -58,6 +63,11 @@ class MainActivity : AppCompatActivity() {
     private fun JogoMemoria(){
         val MemoryGame = Intent(this, MemoryGame::class.java)
         startActivity(MemoryGame)
+    }
+
+    private fun GoUser(){
+        val user = Intent(this, user::class.java)
+        startActivity(user)
     }
 }
 
