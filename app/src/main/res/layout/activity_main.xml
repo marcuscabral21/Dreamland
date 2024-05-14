@@ -17,7 +17,8 @@
         android:layout_marginTop="88dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="APP logo" />
 
     <TextView
         android:id="@+id/nicknameTextView"
@@ -47,7 +48,8 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/userphoto" />
+        app:srcCompat="@drawable/userphoto"
+        android:contentDescription="User button" />
 
     <ImageButton
         android:id="@+id/CarRaceBtn"
@@ -63,7 +65,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo"
         app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/car_btn" />
+        app:srcCompat="@drawable/car_btn"
+        android:contentDescription="Car game button" />
 
     <!-- Jogo matemática -->
     <ImageButton
@@ -80,7 +83,8 @@
         app:layout_constraintHorizontal_bias="0.642"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CarRaceBtn"
-        app:srcCompat="@drawable/math_btn" />
+        app:srcCompat="@drawable/math_btn"
+        android:contentDescription="Math quiz game button" />
 
     <!-- Jogo galo -->
     <ImageButton
@@ -97,7 +101,8 @@
         app:layout_constraintHorizontal_bias="0.642"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MathQuizBtn"
-        app:srcCompat="@drawable/tictactoe_btn" />
+        app:srcCompat="@drawable/tictactoe_btn"
+        android:contentDescription="Tic Tac Toe game button" />
 
     <!-- Jogo memória -->
     <ImageButton
@@ -114,6 +119,7 @@
         app:layout_constraintHorizontal_bias="0.642"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TicTacToeBtn"
-        app:srcCompat="@drawable/memory_btn" />
+        app:srcCompat="@drawable/memory_btn"
+        android:contentDescription="Memory game button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

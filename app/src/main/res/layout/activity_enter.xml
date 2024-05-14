@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D0E6A5"
+    tools:context=".enter">
+
+    <ImageView
+        android:id="@+id/fred"
+        android:layout_width="201dp"
+        android:layout_height="289dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="176dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fred"
+        android:contentDescription="App mascot (Fred)" />
+
+    <ImageButton
+        android:id="@+id/GoMenurBtn"
+        android:layout_width="161dp"
+        android:layout_height="121dp"
+        android:background="#00FFFFFF"
+        android:onClick="onGoUserBtnClick"
+        android:scaleType="centerInside"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fred"
+        app:srcCompat="@drawable/enterbtn"
+        android:contentDescription="Enter button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
