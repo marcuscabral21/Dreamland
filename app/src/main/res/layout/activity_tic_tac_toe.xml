@@ -16,7 +16,9 @@
 
     android:layout_margin="10dp"
 
-    android:background="@drawable/bg">
+    android:background="@drawable/bg"
+    android:contentDescription="tictactoe background" >
+
 
     <TextView
 
