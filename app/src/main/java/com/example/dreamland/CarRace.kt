@@ -1,22 +1,25 @@
 package com.example.dreamland
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.SystemClock
 import android.view.View
 import android.widget.Button
 import android.widget.Chronometer
-import android.widget.LinearLayout
+import android.widget.ImageButton
+import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 class CarRace : AppCompatActivity(), GameTask {
-    private lateinit var rootLayout: LinearLayout
+    private lateinit var rootLayout: RelativeLayout
     private lateinit var startBtn: Button
     private lateinit var mGameView: GameView
     private lateinit var score: TextView
     private lateinit var sessionTimer: Chronometer
-    private var startTime: Long = 0
+    private lateinit var menuButton: ImageButton
     private var isGameRunning = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,12 +31,40 @@ class CarRace : AppCompatActivity(), GameTask {
         rootLayout = findViewById(R.id.rootLayout)
         score = findViewById(R.id.score)
         sessionTimer = findViewById(R.id.session_timer)
+        menuButton = findViewById<ImageButton>(R.id.menuButton) // Adicione esta linha para inicializar o botão do menu
 
         mGameView = GameView(this, this)
 
         startBtn.setOnClickListener {
             startGame()
         }
+
+        // Adicione este bloco de código para adicionar um OnClickListener ao botão do menu
+        menuButton.setOnClickListener {
+            // Aqui você pode adicionar a lógica para voltar ao menu
+            // Por exemplo, você pode iniciar uma nova Activity que é o seu menu
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        // Configurando o botão infoButton
+        val infoButton = findViewById<ImageButton>(R.id.infoButton)
+        infoButton.setOnClickListener {
+            showInstructionsDialog()
+        }
+    }
+
+    private fun showInstructionsDialog() {
+        val dialogMessage = "\nHow to play Car Race:\n\nTap middle, right or left.\n\nHold on for as long as possible."
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Instructions")
+        builder.setMessage(dialogMessage)
+        builder.setPositiveButton("OK") { dialog, which ->
+            dialog.dismiss()
+        }
+        val dialog = builder.create()
+        dialog.show()
     }
 
     private fun startGame() {

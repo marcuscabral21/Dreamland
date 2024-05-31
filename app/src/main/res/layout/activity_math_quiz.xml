@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,6 +18,39 @@
         android:padding="20sp"
         android:layout_width="wrap_content"
         android:layout_height="300sp">
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/menuButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/homebtn"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/back_to_menu" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/infoButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:adjustViewBounds="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/go_to_info"
+                android:scaleType="fitCenter"
+                android:src="@drawable/infobtn" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/title"
@@ -49,7 +81,8 @@
         android:id="@+id/gamelayout"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone"> <!-- Initially hidden -->
 
         <TextView
             android:layout_gravity="center"
@@ -234,7 +267,8 @@
                 <TextView
                     android:layout_marginTop="10sp"
                     android:layout_marginLeft="40sp"
-                    android:textColor="@color/white"                    android:textSize="30sp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
                     android:text="  C:"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
@@ -281,16 +315,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="60sp">
                 </Button>
-
             </RelativeLayout>
-
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="70dp">
-        </Space>
-
     </LinearLayout>
-
 </LinearLayout>

@@ -1,15 +1,18 @@
-package com.example.dreamland;
+package com.example.dreamland
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import java.util.Random
@@ -28,6 +31,7 @@ class MathQuiz : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     private lateinit var questionNumberTextView: Button
     private lateinit var sessionTimeTextView: TextView
+    private lateinit var menuButton: ImageButton
 
     private var score = 0
     private var currentQuestionIndex = 0
@@ -50,6 +54,22 @@ class MathQuiz : AppCompatActivity() {
         questionNumberTextView = findViewById(R.id.questionNumberTextView)
         sessionTimeTextView = findViewById(R.id.sessionTimeTextView)
         questionTextView = findViewById(R.id.questionTextView)
+        menuButton = findViewById(R.id.menuButton)
+
+        // Adicione este bloco de código para adicionar um OnClickListener ao botão do menu
+        menuButton.setOnClickListener {
+            // Aqui você pode adicionar a lógica para voltar ao menu
+            // Por exemplo, você pode iniciar uma nova Activity que é o seu menu
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        // Configurando o botão infoButton
+        val infoButton = findViewById<ImageButton>(R.id.infoButton)
+        infoButton.setOnClickListener {
+            showInstructionsDialog()
+        }
 
         dashbord.visibility = View.VISIBLE
         gamelayout.visibility = View.GONE
@@ -67,6 +87,18 @@ class MathQuiz : AppCompatActivity() {
         option2Button.setOnClickListener { onOptionSelected(it) }
         option3Button.setOnClickListener { onOptionSelected(it) }
         option4Button.setOnClickListener { onOptionSelected(it) }
+    }
+
+    private fun showInstructionsDialog() {
+        val dialogMessage = "\nHow to play Math Quiz Game:\n\nSettle the score before time runs out."
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Instructions")
+        builder.setMessage(dialogMessage)
+        builder.setPositiveButton("OK") { dialog, which ->
+            dialog.dismiss()
+        }
+        val dialog = builder.create()
+        dialog.show()
     }
 
     private fun startGame() {
@@ -98,7 +130,7 @@ class MathQuiz : AppCompatActivity() {
 
     private fun startTimer() {
         timer?.cancel()
-        val duration = 10000L // Total duration of the timer in milliseconds
+        val duration = 20000L // Total duration of the timer in milliseconds
         val interval = 50L // Update interval in milliseconds
 
         timer = object : CountDownTimer(duration, interval) {
@@ -134,8 +166,8 @@ class MathQuiz : AppCompatActivity() {
     }
 
     private fun generateRandomQuestion(): Question {
-        val num1 = random.nextInt(100)
-        val num2 = random.nextInt(100)
+        val num1 = random.nextInt(16)
+        val num2 = random.nextInt(16)
         val correctAnswer = num1 + num2
         val options = generateOptions(correctAnswer)
 

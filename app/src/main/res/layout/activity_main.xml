@@ -11,8 +11,8 @@
     <!-- Logo -->
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="143dp"
-        android:layout_height="120dp"
+        android:layout_width="135dp"
+        android:layout_height="115dp"
         android:layout_marginStart="124dp"
         android:layout_marginTop="88dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,8 +36,8 @@
 
     <ImageButton
         android:id="@+id/GoUserBtn"
-        android:layout_width="100dp"
-        android:layout_height="82dp"
+        android:layout_width="90dp"
+        android:layout_height="72dp"
         android:layout_marginBottom="276dp"
         android:background="#00FFFFFF"
         android:onClick="onGoUserBtnClick"
@@ -53,8 +53,8 @@
 
     <ImageButton
         android:id="@+id/CarRaceBtn"
-        android:layout_width="369dp"
-        android:layout_height="116dp"
+        android:layout_width="365dp"
+        android:layout_height="110dp"
         android:layout_marginTop="20dp"
         android:background="#00FFFFFF"
         android:onClick="onCarRaceBtnClick"
@@ -71,26 +71,25 @@
     <!-- Jogo matemática -->
     <ImageButton
         android:id="@+id/MathQuizBtn"
-        android:layout_width="369dp"
-        android:layout_height="116dp"
+        android:layout_width="365dp"
+        android:layout_height="110dp"
         android:layout_marginTop="15dp"
         android:background="#00FFFFFF"
+        android:contentDescription="Math quiz game button"
         android:onClick="onMathQuizBtnClick"
         android:scaleType="centerInside"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/TicTacToeBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.642"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CarRaceBtn"
-        app:srcCompat="@drawable/math_btn"
-        android:contentDescription="Math quiz game button" />
+        app:srcCompat="@drawable/math_btn" />
 
     <!-- Jogo galo -->
     <ImageButton
         android:id="@+id/TicTacToeBtn"
-        android:layout_width="369dp"
-        android:layout_height="116dp"
+        android:layout_width="365dp"
+        android:layout_height="110dp"
         android:layout_marginTop="15dp"
         android:background="#00FFFFFF"
         android:onClick="onTicTacToeBtnClick"
@@ -98,7 +97,6 @@
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/MemoryGameBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.642"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MathQuizBtn"
         app:srcCompat="@drawable/tictactoe_btn"
@@ -107,8 +105,8 @@
     <!-- Jogo memória -->
     <ImageButton
         android:id="@+id/MemoryGameBtn"
-        android:layout_width="369dp"
-        android:layout_height="116dp"
+        android:layout_width="365dp"
+        android:layout_height="110dp"
         android:layout_marginTop="15dp"
         android:background="#00FFFFFF"
         android:onClick="onMemoryGameBtnClick"
@@ -116,7 +114,6 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.642"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TicTacToeBtn"
         app:srcCompat="@drawable/memory_btn"

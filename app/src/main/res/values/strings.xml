@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Dreamland</string>
+    <string name="back_to_menu">Voltar ao menu</string>
+    <string name="go_to_info">Ir para as informações</string>
 </resources>

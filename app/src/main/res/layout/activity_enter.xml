@@ -21,8 +21,8 @@
 
     <ImageButton
         android:id="@+id/GoMenurBtn"
-        android:layout_width="161dp"
-        android:layout_height="121dp"
+        android:layout_width="155dp"
+        android:layout_height="115dp"
         android:background="#00FFFFFF"
         android:onClick="onGoUserBtnClick"
         android:scaleType="centerInside"

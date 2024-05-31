@@ -1,11 +1,15 @@
 package com.example.dreamland
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
+import androidx.appcompat.app.AlertDialog
+import android.util.TypedValue
+
 
 private const val TAG = "MemoryGame"
 
@@ -42,6 +46,20 @@ class MemoryGame : AppCompatActivity() {
         val button7 = findViewById<ImageButton>(R.id.imageButton7)
         val button8 = findViewById<ImageButton>(R.id.imageButton8)
 
+        val menuButton = findViewById<ImageButton>(R.id.menuButton)
+        menuButton.setOnClickListener {
+            // Aqui você pode adicionar o código para voltar para a tela inicial ou realizar outra ação desejada
+            // Por exemplo, iniciar uma nova atividade:
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Configurando o botão infoButton
+        val infoButton = findViewById<ImageButton>(R.id.infoButton)
+        infoButton.setOnClickListener {
+            showInstructionsDialog()
+        }
+
         buttons = listOf(button1, button2, button3, button4, button5, button6, button7, button8)
 
         cards = buttons.indices.map { index ->
@@ -54,6 +72,18 @@ class MemoryGame : AppCompatActivity() {
                 updateViews()
             }
         }
+    }
+
+    private fun showInstructionsDialog() {
+        val dialogMessage = "\nHow to play Memory Card Game:\n\nLook for two identical pieces."
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Instructions")
+        builder.setMessage(dialogMessage)
+        builder.setPositiveButton("OK") { dialog, which ->
+            dialog.dismiss()
+        }
+        val dialog = builder.create()
+        dialog.show()
     }
 
     private fun updateViews() {
@@ -96,6 +126,7 @@ class MemoryGame : AppCompatActivity() {
             numPairsFound++
             if (numPairsFound == cards.size / 2) {
                 textViewTitle.text = "Congratulations, you completed it!"
+                textViewTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17f)
                 timer.cancel()
 
                 val elapsedTimeInSeconds = (Long.MAX_VALUE - millisUntilFinished) / 1000

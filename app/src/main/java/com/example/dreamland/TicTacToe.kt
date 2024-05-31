@@ -1,5 +1,6 @@
 package com.example.dreamland;
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.SystemClock
@@ -9,6 +10,8 @@ import android.widget.Chronometer
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import android.text.Html
+import android.widget.ImageButton
+import androidx.appcompat.app.AlertDialog
 
 class TicTacToe : AppCompatActivity(), View.OnClickListener {
     var playerOneActive = false
@@ -41,10 +44,23 @@ class TicTacToe : AppCompatActivity(), View.OnClickListener {
         reset = findViewById(R.id.btn_reset)
         playagain = findViewById(R.id.btn_play_again)
 
+        val menuButton = findViewById<ImageButton>(R.id.menuButton)
+        menuButton.setOnClickListener {
+            // Aqui você pode adicionar o código para voltar para a tela inicial ou realizar outra ação desejada
+            // Por exemplo, iniciar uma nova atividade:
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
-        playerOneScore.setTextColor(Color.parseColor("#c0ab5b"))
-        playerTwoScore.setTextColor(Color.parseColor("#c0ab5b"))
-        playerStatus.setTextColor(Color.parseColor("#c0ab5b"))
+        // Configurando o botão infoButton
+        val infoButton = findViewById<ImageButton>(R.id.infoButton)
+        infoButton.setOnClickListener {
+            showInstructionsDialog()
+        }
+
+        playerOneScore.setTextColor(Color.BLACK)
+        playerTwoScore.setTextColor(Color.BLACK)
+        playerStatus.setTextColor(Color.BLACK)
         timer.setTextColor(Color.parseColor("#c0ab5b"))
 
         playerOneScore.text = Html.fromHtml("<font color='#000000'>0</font>")
@@ -71,6 +87,18 @@ class TicTacToe : AppCompatActivity(), View.OnClickListener {
         rounds = 0
         startTimeMillis = SystemClock.elapsedRealtime()
         timer.start()
+    }
+
+    private fun showInstructionsDialog() {
+        val dialogMessage = "\nHow to play Tic Tac Toe Game:\n\nChoose the position of the X and O. Whoever forms the first line with three pieces wins."
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Instructions")
+        builder.setMessage(dialogMessage)
+        builder.setPositiveButton("OK") { dialog, which ->
+            dialog.dismiss()
+        }
+        val dialog = builder.create()
+        dialog.show()
     }
 
     override fun onClick(view: View) {
